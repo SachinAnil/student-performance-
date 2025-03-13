@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Predictor</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='image.png') }}");
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        input[type="number"], input[type="submit"] {
+            padding: 8px;
+            margin: 8px 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        h2, h3 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Scores to Predict Total</h2>
+        <form method="post" action="/predict">
+            <input type="number" name="math_score" placeholder="Math Score" required><br>
+            <input type="number" name="reading_score" placeholder="Reading Score" required><br>
+            <input type="number" name="writing_score" placeholder="Writing Score" required><br>
+            <input type="submit" value="Predict">
+        </form>
+        <h3>{{ prediction_text }}</h3>
+    </div>
+</body>
+</html>
+
+
+
+
+
